@@ -61,7 +61,7 @@ class Input extends Component {
                 :
                 <div />
                 }
-                <label htmlFor="items">Choose an item:</label>
+                <label htmlFor="items">Risk:</label>
 
                     <select id="items" onChange={this.handleChange}>
                     <option value="LOW">LOW</option>
