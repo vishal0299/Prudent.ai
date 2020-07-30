@@ -21,6 +21,17 @@ class Input extends Component {
         });
     }
 
+    handleChange = (e) => {
+        this.setState((prevState) => {
+            var result = prevState.slice(1).forEach(function(row){
+                if(row[3] == e.target.value){
+                    return row
+                }
+            })
+            return {fileData: result}
+        });
+    }
+
     render() {
         const validFiels = ["ID", "Client Name", "Amount", "Risk Category"];
         var valid = false;
@@ -43,6 +54,13 @@ class Input extends Component {
                 :
                 <div />
                 }
+                <label htmlFor="items">Choose an item:</label>
+
+                    <select id="items" onChange={this.handleChange}>
+                    <option value="LOW">LOW</option>
+                    <option value="MEDIUM">MEDIUM</option>
+                    <option value="HIGH">HIGH</option>
+                    </select>
             </div>
         );
     }
