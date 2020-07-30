@@ -21,13 +21,20 @@ class Input extends Component {
         });
     }
 
+
+    filter = (arr, key) => {
+        var newarray = [] 
+        for(let i in arr){
+           if(i[3] === key) 
+               newarray.push(i)
+        }
+        return newarray
+      }
+
     handleChange = (e) => {
         this.setState((prevState) => {
-            var result = prevState.slice(1).forEach(function(row){
-                if(row[3] == e.target.value){
-                    return row
-                }
-            })
+
+            var result = this.filter(prevState, e.target.value);
             return {fileData: result}
         });
     }
